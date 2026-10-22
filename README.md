@@ -8,9 +8,9 @@ phones, on desktop and right inside X, with no sign-up.
 
 ![How Decicat 2 works](docs/how-it-works.png)
 
-| Title | Pick your rider | On the Moon |
+| Title | Pick your rider | In the book |
 | --- | --- | --- |
-| ![Title screen](docs/screenshots/title.png) | ![Rider select](docs/screenshots/select.png) | ![Stage 1](docs/screenshots/stage.png) |
+| ![Title screen](docs/screenshots/title_170.png) | ![Rider select](docs/screenshots/select.png) | ![Lunar Orbit with the live depth map](docs/screenshots/gameplay_170.png) |
 
 ## The story
 
@@ -24,8 +24,12 @@ and plant the flag on Mars.
 
 - **9 stages, each built from a real Decibel order book of a different coin.** The deeper the bids, the taller the
   cliffs; the heavier the asks, the lower the ceiling; a wide spread means a wide gap.
-- **A new journey every day.** Each stage follows its coin through the day in up to five snapshots of the market, so
-  the terrain shifts as you ride, and tomorrow's run is different again.
+- **A new journey every day.** Each stage follows its coin through the day in several snapshots of its market (up to
+  eight), so the terrain shifts as you ride. The day locks at 07:00 Toronto time, and tomorrow's run is different again.
+- **The gaps come from the book.** Pits open where the buy side thins out, so the same book gives every player the same
+  course. There is no randomness in the terrain.
+- **Pickups.** Gold coins on real jump arcs, one Decibel coin per stage, and sound rings that pay a FUNDING PAYMENT.
+- **Check it yourself.** A public proof page shows the real books behind today's levels (see below).
 - **Five power-ups** with trading names: STOP-LOSS, LIQUIDITY MAGNET, LIMIT ORDER, 2X LEVERAGE and DIAMOND PAWS.
 - **A boss fight against The Spoofer**, a rogue market maker hiding behind fake orders.
 - **Unlockable Decibel team characters**: ride as Kent, Castro, Angel, Sedall or Brylee once you earn them.
@@ -44,14 +48,14 @@ Decicat runs on its own. Your only job is to jump.
 | M | Mute or unmute |
 
 Land on the green bid columns, duck under the red ask columns, jump the spread, and time the drones that patrol the
-asks. You have three lives, and every portal gives one back.
+asks. You have one life, so a STOP-LOSS is worth grabbing.
 
 ## The stages
 
 | # | Stage | Coin | Twist |
 | --- | --- | --- | --- |
 | 1 | Decibel Moon | APT | low gravity, floaty jumps |
-| 2 | Lunar Orbit | LINK | fly through rings for an extra jump |
+| 2 | Lunar Orbit | LINK | wide steps, steady rhythm |
 | 3 | Floating Ruins | NEAR | islands adrift in space, mind the spread |
 | 4 | Crystal Nebula | SUI | bouncy pink crystal tops |
 | 5 | Solar Storm | SOL | plasma jets lift you up |
@@ -61,6 +65,36 @@ asks. You have three lives, and every portal gives one back.
 | 9 | Mars Mode | ZEC | keep going |
 
 ![All nine stages](docs/screenshots/stages.png)
+
+## Built from real Decibel order books
+
+```mermaid
+flowchart LR
+  D["Decibel order books<br/>9 coins"] -->|"snapshots through the day"| S["Game server<br/>stores each book exactly as received<br/>+ its SHA-256 fingerprint"]
+  S -->|"07:00 Toronto: the day locks"| L["Today's journey<br/>9 stages, the same for everyone"]
+  L --> G["The game<br/>bids = ground, asks = ceiling,<br/>thin bids = pits"]
+  L --> P["Proof page<br/>the books behind every level"]
+  P --> V["Anyone can check<br/>re-hash the stored book,<br/>rebuild the level"]
+```
+
+Each stage has a fixed length that is split evenly over all of its coin's snapshots for the day. Nothing is published
+before the day locks at 07:00 Toronto time.
+
+![Stage lengths](docs/screenshots/stage_lengths_170.png)
+
+## Proof page
+
+The proof page (`/proof`) shows, for every stage of today's journey:
+- the real book behind each snapshot and the level built from it;
+- how much smoothing the fairness rules applied;
+- any fallback to an archived book.
+
+Each snapshot also carries the fingerprint (SHA-256) of the exact response the game received from Decibel. A small
+script from the same page lets anyone download that response, re-hash it, rebuild the level and compare.
+
+| Proof page | Verify a level |
+| --- | --- |
+| ![Proof page](docs/screenshots/proof_170.png) | ![Verify this level](docs/screenshots/verify_170.png) |
 
 ## The Spoofer
 
