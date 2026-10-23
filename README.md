@@ -6,6 +6,10 @@ bids below, asks above, mind the spread.
 Decicat 2 is the sequel to Decicat and part of **Bitcade**, my series of one-button browser arcade games. It plays on
 phones, on desktop and right inside X, with no sign-up.
 
+**Current version: 0.17.1** (October 2026). Recent updates: 0.15 added the public proof page, 0.16 added gold coins, the
+Decibel coin and sound-wave rings, 0.17.0 built the pits straight from the book and made every level independently
+verifiable, and 0.17.1 keeps each day's books private until the 07:00 Toronto lock.
+
 ![How Decicat 2 works](docs/how-it-works.png)
 
 | Title | Pick your rider | In the book |
