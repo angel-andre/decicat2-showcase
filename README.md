@@ -6,8 +6,9 @@ bids below, asks above, mind the spread.
 Decicat 2 is the sequel to Decicat and part of **Bitcade**, my series of one-button browser arcade games. It plays on
 phones, on desktop and right inside X, with no sign-up.
 
-**Current version: 0.18.2** (October 2026). Recent updates: 0.18 brings a new stage-6 boss, **the Bear Prince**, with a
-Castlevania-inspired intro cinematic, Decibel Mars behind his castle and his own battle music. Before that, 0.15
+**Current version: 0.18.3** (October 2026). Recent updates: 0.18 brings a new stage-6 boss, **the Bear Prince**, with a
+Castlevania-inspired intro cinematic, Decibel Mars behind his castle and his own battle music; 0.18.3 makes the Angel
+rider unlock again: beat the Bear Prince to earn him. Before that, 0.15
 added the public proof page, 0.16 added gold coins, the Decibel coin, sound-wave rings and the teleport between stages,
 0.17.0 built the pits straight from the book and made every level independently verifiable, and 0.17.1 keeps each day's
 books private until the 07:00 Toronto lock.
